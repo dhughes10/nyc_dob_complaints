@@ -17,17 +17,18 @@ function setup() {
  
     //Make the canvas and then insert it into a div
     createCanvas(windowWidth, windowHeight);
-    background("white");  
+    background("white"); 
     textAlign(CENTER);
     rectMode(CORNER);
       
    //count the complaints per street
+
     var streets = {};
     for (var i = 0; i < complaints.data.length; i++) {
         var cCode = complaints.data[i][16];
         streets[cCode] = 1 + (streets[cCode] || 0);
     }
-
+    trim();
     //sort them
     sortedStreets = sortHighLow(streets);   
 
